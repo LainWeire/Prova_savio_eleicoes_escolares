@@ -2,10 +2,11 @@ import streamlit as st
 import streamlit_authenticator as stauth
 from time import sleep
 
-st.text("Como deseja se registrar?")
+# REGISTRO / LOGIN DO ALUNO para verificação
 
-def ver_preenchidos(campos): 
+def ver_preenchidos(campos):  # funcao que ve se cada entrada foi preenchida
     return all(campos.values())
+
 
 foto = st.file_uploader("Foto do aluno:", type=["jpg", "jpeg", "png"])
 nome = st.text_input("Nome do aluno:", value="", placeholder="Digite aqui...")
