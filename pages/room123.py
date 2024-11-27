@@ -2,8 +2,11 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import random
 from io import BytesIO
+import time
+import webbrowser
 
 # Configuração inicial da página
+
 st.set_page_config(page_title="Sistema de Votação com Gráfico", layout="centered")
 
 # Títulos e descrição
@@ -28,16 +31,27 @@ else:
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("Votar no Candidato 1"):
+        if st.button("Votar no Candidato 1"):  
             st.session_state.votos_candidato1 += 1
             st.session_state.ja_votou = True
             st.success("Seu voto foi registrado para o Candidato 1!")
-
+ 
     with col2:
         if st.button("Votar no Candidato 2"):
             st.session_state.votos_candidato2 += 1
             st.session_state.ja_votou = True
             st.success("Seu voto foi registrado para o Candidato 2!")
+
+
+col3, col4 = st.columns(2)
+
+with col3:
+    if st.button("Discurso do candidato 1:"):
+        webbrowser.open("https://drive.google.com/file/d/1kQLq79oVjbr01VncLILsOYeNoUbamg9Z/view")
+with col4:
+        if st.button("Discurso do candidato 2:"):
+            webbrowser.open("https://drive.google.com/file/d/1qmZaOtp8vKijO7M4KoV5A4kBMBEaNaf4/view")
+
 
 # Exibir os totais de votos
 st.markdown("---")
